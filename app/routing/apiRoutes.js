@@ -14,9 +14,12 @@ module.exports = function(app) {
     // handle incoming survey results; this route will also be used to
     // handle the compatibility logic
     app.post("/api/friends", function(req, res) {
-        console.log(req.body);
         var newUser = req.body;
-        var newScores = newUser.scores;
+        var newScores = [];
+        for (var i = 0; i < newUser.scores.length; i++) {
+            newScores.push(parseInt(newUser.scores[i]));
+        }
+        //var newScores = newUser.scores;
         var mostCompatibleFriend;
 
         // Set the difference between user scores to be a very high value initially
@@ -33,6 +36,7 @@ module.exports = function(app) {
             }
         }
 
+        newUser.scores = newScores;
         // Add the new user's data to the array of objects representing a list of friends
         friendsData.push(newUser);
 
