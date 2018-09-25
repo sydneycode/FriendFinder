@@ -8,19 +8,18 @@ var friendsArray = [
     {
       name: "Ahmed",
       photo: "https://via.placeholder.com/400x400",
-    //   scores: [
-    //       5,
-    //       1,
-    //       4,
-    //       4,
-    //       5,
-    //       1,
-    //       2,
-    //       5,
-    //       4,
-    //       1
-    //   ]
-    scores: [1,1,1,1,1,1,1,1,1,1]
+      scores: [
+          5,
+          1,
+          4,
+          4,
+          5,
+          1,
+          2,
+          5,
+          4,
+          1
+      ]
     }
 ];
 
