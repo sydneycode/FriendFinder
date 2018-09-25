@@ -145,7 +145,30 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary btn-block" id="find-friend"><span class="far fa-check-circle"></span> Submit</button>
+            <button type="submit" class="btn btn-primary btn-block" id="find-friend" data-toggle="modal" data-target="#friendModal"><span class="far fa-check-circle"></span> Submit</button>
+                        
+            <!-- Modal -->
+            <div id="friendModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Best Match</h4>
+                    </div>
+                    <div class="modal-body">
+                    <h5 id="match-name"></h5>
+                    <img id="match-photo" src=""> 
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            
+                </div>
+            </div>
+            
             <hr class="my-4">
         </form>
 
@@ -166,6 +189,7 @@
                 $("#question9").val() === "" || $("#question10").val() === "") {
                     console.log("blank");
                     alert("Please fill out all fields before submitting!");
+                    
             }
             else {
                 var newFriend = {
@@ -185,11 +209,13 @@
                     ]
                 };
 
-                $.post("/api/friends", newFriend)
-                    .then(function(data) {
-                    console.log(data);
-                    alert("Adding friend...");
-                });
+                // Allows us to check that an API POST request is being sent correctly
+                // when a new user or "friend" is added
+                // $.post("/api/friends", newFriend)
+                //     .then(function(data) {
+                //     console.log(data);
+                //     alert("Adding friend...");
+                // });
             }
         });
     
