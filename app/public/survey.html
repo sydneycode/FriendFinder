@@ -178,7 +178,6 @@
     <script type="text/javascript">
         $("#find-friend").on("click", function(event) {
             event.preventDefault();
-            console.log("here");
     
             // If any of the questions were left empty, tell the user to answer all questions
             if ($("#name").val() === "" || $("#pic").val() === "" ||
@@ -187,9 +186,7 @@
                 $("#question5").val() === "" || $("#question6").val() === "" ||
                 $("#question7").val() === "" || $("#question8").val() === "" ||
                 $("#question9").val() === "" || $("#question10").val() === "") {
-                    console.log("blank");
-                    alert("Please fill out all fields before submitting!");
-                    
+                    alert("Please fill out all fields before submitting!"); 
             }
             else {
                 var newFriend = {
@@ -209,13 +206,13 @@
                     ]
                 };
 
-                // Allows us to check that an API POST request is being sent correctly
+                // Allows us to get back the response containing the most compatible friend
                 // when a new user or "friend" is added
-                // $.post("/api/friends", newFriend)
-                //     .then(function(data) {
-                //     console.log(data);
-                //     alert("Adding friend...");
-                // });
+                $.post("/api/friends", newFriend)
+                    .then(function(data) {
+                        console.log("Name: " + data.name + " | Photo: " + data.photo);
+                    //alert("Adding friend...");
+                });
             }
         });
     

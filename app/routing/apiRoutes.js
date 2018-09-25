@@ -32,15 +32,12 @@ module.exports = function(app) {
                 mostCompatibleFriend = friendsData[i];
             }
         }
-        console.log("Name: " + newUser.name + " | Photo: " + newUser.photo);
 
         // Add the new user's data to the array of objects representing a list of friends
         friendsData.push(newUser);
-        res.json(newUser);
 
-        // Display the new user's most compatible friend, using a modal pop-up that 
-        // displays both the name and picture of the closest match
-        console.log("Name: " + mostCompatibleFriend.name + " | Photo: " + mostCompatibleFriend.photo);
+        // Send the new user's most compatible friend back as the response
+        res.json(mostCompatibleFriend);
     });
 
 };
@@ -53,6 +50,5 @@ function getTotalDifference(arr1, arr2) {
         var difference = Math.abs(arr1[i] - arr2[i]);
         totalDifference += difference;
     }
-    console.log(totalDifference)
     return totalDifference;
 }
