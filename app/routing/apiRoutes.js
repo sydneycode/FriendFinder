@@ -18,12 +18,17 @@ module.exports = function(app) {
         var newUser = req.body;
         var newScores = newUser.scores;
         var mostCompatibleFriend;
-        var maxCompatibilityScore = 0;
+
+        // Set the difference between user scores to be a very high value initially
+        var minDiff = Number.MAX_VALUE;
         for (var i = 0; i < friendsData.length; i++) {
             var currentScores = friendsData[i].scores;
-            var currentCompatibilityScore = getTotalDifference(newScores, currentScores);
-            if (currentCompatibilityScore > maxCompatibilityScore) {
-                maxCompatibilityScore = currentCompatibilityScore;
+            var currentDiff = getTotalDifference(newScores, currentScores);
+
+            // if the current difference is less than the minimum difference, record 
+            // the current friend as the most compatible friend for the new user
+            if (currentDiff < minDiff) {
+                minDiff = currentDiff;
                 mostCompatibleFriend = friendsData[i];
             }
         }
@@ -33,7 +38,7 @@ module.exports = function(app) {
 
         // Display the new user's most compatible friend, using a modal pop-up that 
         // displays both the name and picture of the closest match
-        console.log("Name: " + friendsData.name + "| Photo: " + friendsData.photo);
+        console.log("Name: " + newUser.name + " | Photo: " + newUser.photo);
     });
 
 };
