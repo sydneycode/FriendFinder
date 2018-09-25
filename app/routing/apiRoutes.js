@@ -45,5 +45,6 @@ function getTotalDifference(arr1, arr2) {
         var difference = Math.abs(arr1[i] - arr2[i]);
         totalDifference += difference;
     }
+    console.log(totalDifference)
     return totalDifference;
 }
