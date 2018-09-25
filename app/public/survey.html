@@ -150,5 +150,45 @@
         </form>
 
     </div>
+
+    <script type="text/javascript">
+        $(".submit").on("click", function(event) {
+            event.preventDefault();
+    
+            // If any of the questions were left empty, tell the user to answer all questions
+            if ($("#question1").value === "" || $("#question2").value === "" ||
+                $("#question3").value === "" || $("#question4").value === "" ||
+                $("#question5").value === "" || $("#question6").value === "" ||
+                $("#question7").value === "" || $("#question8").value === "" ||
+                $("#question9").value === "" || $("#question10").value === "") {
+                    alert("Please fill out all fields before submitting!");
+            }
+            else {
+                var newFriend = {
+                    name: $("#name").val().trim(),
+                    photo: $("#pic").val().trim(),
+                    scores: [
+                        $("#question1").value,
+                        $("#question2").value,
+                        $("#question3").value,
+                        $("#question4").value,
+                        $("#question5").value,
+                        $("#question6").value,
+                        $("#question7").value,
+                        $("#question8").value,
+                        $("#question9").value,
+                        $("#question10").value
+                    ]
+                };
+
+                $.post("/api/friends", newFriend)
+                    .then(function(data) {
+                    console.log(data);
+                    alert("Adding friend...");
+                });
+            }
+        });
+    
+      </script>
 </body>
 </html>
