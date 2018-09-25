@@ -145,15 +145,17 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary btn-block"><span class="far fa-check-circle"></span> Submit</button>
+            <button type="submit" class="btn btn-primary btn-block" id="find-friend"><span class="far fa-check-circle"></span> Submit</button>
             <hr class="my-4">
         </form>
 
     </div>
 
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script type="text/javascript">
-        $(".submit").on("click", function(event) {
+        $("#find-friend").on("click", function(event) {
             event.preventDefault();
+            console.log("here");
     
             // If any of the questions were left empty, tell the user to answer all questions
             if ($("#question1").value === "" || $("#question2").value === "" ||

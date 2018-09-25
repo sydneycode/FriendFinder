@@ -15,7 +15,7 @@ module.exports = function(app) {
     // handle the compatibility logic
     app.post("/api/friends", function(req, res) {
         var newUser = req.body;
-        var newScores = current.scores;
+        var newScores = newUser.scores;
         var mostCompatibleFriend;
         var maxCompatibilityScore = 0;
         for (var i = 0; i < friendsData.length; i++) {
