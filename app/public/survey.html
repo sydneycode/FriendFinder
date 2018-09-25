@@ -158,11 +158,13 @@
             console.log("here");
     
             // If any of the questions were left empty, tell the user to answer all questions
-            if ($("#question1").value === "" || $("#question2").value === "" ||
-                $("#question3").value === "" || $("#question4").value === "" ||
-                $("#question5").value === "" || $("#question6").value === "" ||
-                $("#question7").value === "" || $("#question8").value === "" ||
-                $("#question9").value === "" || $("#question10").value === "") {
+            if ($("#name").val() === "" || $("#pic").val() === "" ||
+                $("#question1").val() === "" || $("#question2").val() === "" ||
+                $("#question3").val() === "" || $("#question4").val() === "" ||
+                $("#question5").val() === "" || $("#question6").val() === "" ||
+                $("#question7").val() === "" || $("#question8").val() === "" ||
+                $("#question9").val() === "" || $("#question10").val() === "") {
+                    console.log("blank");
                     alert("Please fill out all fields before submitting!");
             }
             else {
@@ -170,16 +172,16 @@
                     name: $("#name").val().trim(),
                     photo: $("#pic").val().trim(),
                     scores: [
-                        $("#question1").value,
-                        $("#question2").value,
-                        $("#question3").value,
-                        $("#question4").value,
-                        $("#question5").value,
-                        $("#question6").value,
-                        $("#question7").value,
-                        $("#question8").value,
-                        $("#question9").value,
-                        $("#question10").value
+                        $("#question1").val(),
+                        $("#question2").val(),
+                        $("#question3").val(),
+                        $("#question4").val(),
+                        $("#question5").val(),
+                        $("#question6").val(),
+                        $("#question7").val(),
+                        $("#question8").val(),
+                        $("#question9").val(),
+                        $("#question10").val()
                     ]
                 };
 

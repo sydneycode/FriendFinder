@@ -14,6 +14,7 @@ module.exports = function(app) {
     // handle incoming survey reuslts; this route will also be used to
     // handle the compatibility logic
     app.post("/api/friends", function(req, res) {
+        console.log(req.body);
         var newUser = req.body;
         var newScores = newUser.scores;
         var mostCompatibleFriend;
